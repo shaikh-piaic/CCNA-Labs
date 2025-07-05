@@ -1,0 +1,85 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@              LAYER 2 SWITCH CONFIGURATION            @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Switch#
+Switch#
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#inte
+Switch(config)#interface fa
+Switch(config)#interface gi
+Switch(config)#interface gigabitEthernet 0/1
+Switch(config-if)#wsit
+Switch(config-if)#sw
+Switch(config-if)#switchport mode trunk
+
+Switch(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@              LAYER 3 SWITCH CONFIGURATION            @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+Switch>en
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#name sales
+Switch(config-vlan)#exit
+Switch(config)#vlan 20
+Switch(config-vlan)#name accounts
+Switch(config-vlan)#exit
+Switch(config)#inter
+Switch(config)#interface fat
+Switch(config)#interface faa
+Switch(config)#interface fa
+Switch(config)#interface range fastEthernet 0/1-2
+Switch(config-if-range)#swit
+Switch(config-if-range)#switchport mode acce
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#swi
+Switch(config-if-range)#switchport acc
+Switch(config-if-range)#switchport access vlan 10
+Switch(config-if-range)#exit
+Switch(config)#int
+Switch(config)#interface range fa
+Switch(config)#interface range fastEthernet 0/3-4
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport mod
+Switch(config-if-range)#switchport mode ac
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#swi
+Switch(config-if-range)#switchport a
+Switch(config-if-range)#switchport access vlan 20
+Switch(config-if-range)#exit
+Switch(config)#do wr
+Building configuration...
+[OK]
+Switch(config)#ip routing
+Switch(config)# interface vlan 10
+Switch(config-if)#
+%LINK-5-CHANGED: Interface Vlan10, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan10, changed state to up
+
+Switch(config-if)#ip add
+Switch(config-if)#ip address 192.168.1.1 255.255.255.0
+Switch(config-if)#no shut
+Switch(config-if)#exit
+Switch(config)#inte
+Switch(config)#interface vl
+Switch(config)#interface vlan 20
+Switch(config-if)#
+%LINK-5-CHANGED: Interface Vlan20, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan20, changed state to up
+
+Switch(config-if)#ip add
+Switch(config-if)#ip address 192.168.2.1 255.255.255.0
+Switch(config-if)#no shut
+Switch(config-if)#exit
+Switch(config)#
